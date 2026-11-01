@@ -3,6 +3,7 @@ import { supabase } from './supabaseClient'
 import LeadList from './LeadList'
 import LeadDetail from './LeadDetail'
 import AgentStatus from './AgentStatus'
+import Dashboard from './Dashboard'
 
 function App() {
   const [agents, setAgents] = useState([])
@@ -31,11 +32,16 @@ function App() {
         </button>{' '}
         <button type="button" aria-pressed={view === 'agents'} onClick={() => setView('agents')}>
           Agents
+        </button>{' '}
+        <button type="button" aria-pressed={view === 'dashboard'} onClick={() => setView('dashboard')}>
+          Dashboard
         </button>
       </nav>
 
       {view === 'agents' ? (
         <AgentStatus />
+      ) : view === 'dashboard' ? (
+        <Dashboard />
       ) : (
         <>
           <h1>Leads</h1>

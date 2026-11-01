@@ -337,11 +337,12 @@ The brief lists these as optional. The ones built or partly built are below.
 - **Agent presence tracking (partly built).** Agents switch online or offline on the Agents screen, and round-robin skips offline agents. There is no heartbeat, and `last_seen_at` is never written (see [Limitations](#limitations)).
 - **Notifications (partly built).** Each assignment, automatic or manual, writes a `notifications` row. Nothing delivers the notification or shows it in the app.
 - **Audit logging (partly built).** Every request to the endpoint is logged in `webhook_events`. Assignments, status changes, and notes are recorded with their times, and status changes and notes also record the acting agent. Agent online and offline changes are not logged.
+- **Dashboards (built).** A read-only tab with two tables: leads by status, and leads by assigned agent. Each shows a count, with an "Other" row for any status outside the five listed and an "Unassigned" row for leads with no agent. Each table ends with a Total row, so the counts can be checked against the number of leads.
+- **Search (built).** A search box on the Leads page filters by name, phone, or email, ignoring case.
 
 ## Not built and why
 
 - **Retry handling.** Failed writes are logged with their error, but nothing retries them. The sender must send the request again. A resend is safe for a lead already saved, because the 409 response stops a second copy.
-- **Dashboards.** The Leads and Agents screens cover the brief. Totals and charts were not needed to show the lead flow.
 - **Search.** The lead list is short and sorted by newest, so a search box was not needed for the test data.
 - **Real-time communication.** Screens load data when they open or after a change, so a second person's change appears on refresh. Live updates would need Supabase subscriptions.
 - **Workload visibility.** The lead list does not show how many leads each agent holds, and no count was added.
