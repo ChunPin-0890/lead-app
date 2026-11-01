@@ -1,0 +1,8 @@
+# Settings for the Supabase CLI.
+# Only the function setting is needed here. If `supabase init` has created a
+# full config.toml in this folder, keep this section in it.
+
+[functions.leads-incoming]
+# The sender is an external system with no Supabase login, so the function
+# checks its own token (INCOMING_LEAD_TOKEN) instead of a Supabase JWT.
+verify_jwt = false
