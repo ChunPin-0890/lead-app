@@ -58,13 +58,6 @@ flowchart TD
   A2 -- No --> S
 ```
 
-#### Render test
-
-```mermaid
-flowchart LR
-  A --> B
-```
-
 ## Setup
 
 1. **Install the app's dependencies.**
